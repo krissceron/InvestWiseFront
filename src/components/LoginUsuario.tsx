@@ -34,7 +34,7 @@ export function LoginUsuario() {
 
       if (data.codigo === 1) {
         Swal.fire("Éxito", "Usuario logeado exitosamente", "success");
-        navigate("/crearUsuario"); // Navega a otra ruta en caso de éxito
+        navigate("/listaUsuarios"); // Navega a otra ruta en caso de éxito
       } else if (data.codigo === 0) {
         Swal.fire("Error", "Credenciales incorrectas", "error");
       } else {

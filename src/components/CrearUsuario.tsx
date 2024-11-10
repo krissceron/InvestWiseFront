@@ -60,7 +60,7 @@ export function CrearUsuario() {
       const data = await response.json();
       if (data.codigo === 1) {
         Swal.fire("Éxito", "Usuario creado exitosamente", "success");
-        navigate("/");
+        navigate("/listaUsuarios");
       } else {
         Swal.fire("Error", "No se pudo crear el usuario", "error");
       }
