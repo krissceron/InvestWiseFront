@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import { appsettings } from "../settings/appsettings";
+import { appsettings } from "../../settings/appsettings";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { ILoginUsuario } from "../Model/ILoginUsuario";
+import { ILoginUsuario } from "../../Model/ILoginUsuario";
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 // Configuración inicial del usuario
@@ -34,7 +34,7 @@ export function LoginUsuario() {
 
       if (data.codigo === 1) {
         Swal.fire("Éxito", "Usuario logeado exitosamente", "success");
-        navigate("/listaUsuarios"); // Navega a otra ruta en caso de éxito
+        navigate("/paginaPrincipal"); // Navega a otra ruta en caso de éxito
       } else if (data.codigo === 0) {
         Swal.fire("Error", "Credenciales incorrectas", "error");
       } else {

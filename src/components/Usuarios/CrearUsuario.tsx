@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { appsettings } from "../settings/appsettings";
+import { appsettings } from "../../settings/appsettings";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { IUsuario } from "../Model/IUsuario";
+import { IUsuario } from "../../Model/IUsuario";
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 interface IRol {
@@ -20,7 +20,7 @@ const initialUsuario = {
   correoUsuario: "",
 };
 
-export function RegistroUsuario() {
+export function CrearUsuario() {
   const [usuario, setUsuario] = useState<IUsuario>(initialUsuario);
   const [roles, setRoles] = useState<IRol[]>([]);
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ export function RegistroUsuario() {
       const data = await response.json();
       if (data.codigo === 1) {
         Swal.fire("Éxito", "Usuario creado exitosamente", "success");
-        navigate("/");
+        navigate("/listaUsuarios");
       } else {
         Swal.fire("Error", "No se pudo crear el usuario", "error");
       }
@@ -113,10 +113,10 @@ export function RegistroUsuario() {
               <Input type="password" name="contraseniaUsuario" onChange={inputChangeValue} value={usuario.contraseniaUsuario} />
             </FormGroup>
             <Button color="primary" className="me-4" onClick={botonGuardar}>
-              Registrarse
+              Guardar
             </Button>
             <Button color="secondary" onClick={botonVolver}>
-              Iniciar Sesion
+              Volver
             </Button>
           </Form>
         </Col>

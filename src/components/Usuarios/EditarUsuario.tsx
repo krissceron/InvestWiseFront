@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { appsettings } from "../settings/appsettings";
+import { appsettings } from "../../settings/appsettings";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { IUsuario } from "../Model/IUsuario";
+import { IUsuario } from "../../Model/IUsuario";
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 interface IRol {

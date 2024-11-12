@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { appsettings } from "../settings/appsettings";
-import { Link } from "react-router-dom";
+import { appsettings } from "../../settings/appsettings.ts";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { IListaUsuarios } from "../Model/IListaUsuarios.ts";
+import { IListaUsuarios } from "../../Model/IListaUsuarios.ts";
 import { Container, Row, Col, Table, Button } from "reactstrap";
 
 export function ListaUsuarios() {
   const [usuarios, setUsuarios] = useState<IListaUsuarios[]>([]);
+  const navigate = useNavigate();
 
   const obtenerUsuarios = async () => {
     try {
@@ -15,7 +16,7 @@ export function ListaUsuarios() {
 
       if (data.codigo === 1) {
         Swal.fire("Éxito", "Usuarios obtenidos exitosamente", "success");
-        setUsuarios(data.selectResultado); // Asegúrate de que `selectResultado` contenga una lista de usuarios
+        setUsuarios(data.selectResultado);
       } else if (data.codigo === 0) {
         Swal.fire("Error", "No se encontraron usuarios", "error");
       } else {
@@ -88,7 +89,8 @@ export function ListaUsuarios() {
                   <td>{item.cedulaUsuario}</td>
                   <td>{item.telefonoUsuario}</td>
                   <td>{item.correoUsuario}</td>
-                  <td >
+                  <td>
+                    <Link to={`/detalleUsuario/${item.idUsuario}`} className="btn btn-info me-2">Detalles</Link>
                     <Link to={`/editarUsuario/${item.idUsuario}`} className="btn btn-primary me-2">Editar</Link>
                     <Button color="danger" onClick={() => botonEliminar(item.idUsuario)}>Eliminar</Button>
                   </td>
@@ -96,6 +98,9 @@ export function ListaUsuarios() {
               ))}
             </tbody>
           </Table>
+          <Button color="secondary" onClick={() => navigate("/paginaPrincipal")} className="mt-3">
+            Volver
+          </Button>
         </Col>
       </Row>
     </Container>
