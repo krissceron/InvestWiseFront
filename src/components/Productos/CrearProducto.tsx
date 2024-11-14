@@ -39,7 +39,13 @@ export function CrearProducto() {
 
   const inputChangeValue = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const inputName = event.target.name;
-    const inputValue = event.target.value;
+    let inputValue: string | number = event.target.value;
+
+    if (inputName === "precio") {
+      // Convertir el valor a número flotante con máximo de 2 decimales
+      inputValue = parseFloat(parseFloat(inputValue).toFixed(2)) || 0;
+    }
+
     setProducto({ ...producto, [inputName]: inputValue });
   };
 
@@ -95,7 +101,7 @@ export function CrearProducto() {
             </FormGroup>
             <FormGroup>
               <Label>Precio</Label>
-              <Input type="number" name="precio" onChange={inputChangeValue} value={producto.precio} />
+              <Input type="number" name="precio" onChange={inputChangeValue} value={producto.precio} step="0.01" />
             </FormGroup>
             <Button color="primary" className="me-4" onClick={botonGuardar}>
               Guardar

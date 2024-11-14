@@ -11,6 +11,7 @@ import { ListaProductos } from "./components/Productos/ListaProductos"
 import { EditarProducto } from "./components/Productos/EditarProducto"
 import { DetalleProducto } from "./components/Productos/DetalleProducto"
 import { CrearPropuesta } from "./components/Propuestas/CrearPropuesta"
+import { ListaPropuestas } from "./components/Propuestas/ListaPropuesta"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
 
       <Route path="/listaUsuarios" element={<ListaUsuarios/>} />
       <Route path="/listaProductos" element={<ListaProductos />} />
+      <Route path="/listaPropuestas" element={<ListaPropuestas />} />
 
       <Route path="/crearUsuario" element={<CrearUsuario/>} />
       <Route path="/crearProducto" element={<CrearProducto />} />
