@@ -25,26 +25,40 @@ export function LoginUsuario() {
   // Función para el botón de login
   const botonLogin = async () => {
     try {
-      const response = await fetch(`${appsettings.apiUrl}Usuario/Login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(loginusuario),
-      });
-      const data = await response.json();
+        const response = await fetch(`${appsettings.apiUrl}Usuario/Login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(loginusuario),
+        });
 
-      if (data.codigo === 1) {
-        Swal.fire("Éxito", "Usuario logeado exitosamente", "success");
-        navigate("/paginaPrincipal"); // Navega a otra ruta en caso de éxito
-      } else if (data.codigo === 0) {
-        Swal.fire("Error", "Credenciales incorrectas", "error");
-      } else {
-        Swal.fire("Error", "Ocurrió un error durante el login", "error");
-      }
+        const data = await response.json();
+        console.log("ID de usuario desde localStorage:", data);
+        if (data.codigo === 1) {
+            const { rolUsuario, idUsuario } = data.selectResultado || {};
+            localStorage.setItem("userRole", rolUsuario); // Guardar el rol en localStorage
+            localStorage.setItem("userId", idUsuario); // Guardar el ID del usuario en localStorage
+            console.log("ID de usuario desde localStorage:", {idUsuario});
+            console.log("ROL de usuario desde localStorage:", {rolUsuario});
+
+
+            Swal.fire("Éxito", `Bienvenido, rol: ${rolUsuario}`, "success");
+            if (rolUsuario === "Administrador") {
+                navigate("/HomeAdmin");
+            } else if (rolUsuario === "Inversionista") {
+                navigate("/HomeInvest");
+            }
+        } else if (data.codigo === 0) {
+            Swal.fire("Error", "Credenciales incorrectas", "error");
+        } else {
+            Swal.fire("Error", "Ocurrió un error durante el login", "error");
+        }
     } catch (error) {
-      console.error("Error en el login:", error);
-      Swal.fire("Error", "Ocurrió un error al iniciar sesión", "error");
+        Swal.fire("Error", "Ocurrió un error al iniciar sesión", "error");
     }
-  };
+};
+
+  
+  
 
   const botonRegistrarse = () => {
     navigate("/registroUsuario");

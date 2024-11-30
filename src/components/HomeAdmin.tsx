@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
-export function PaginaPrincipal() {
+export function HomeAdmin() {
     const navigate = useNavigate();
 
     return (
@@ -16,7 +16,7 @@ export function PaginaPrincipal() {
                     <Button color="success" className="m-2" onClick={() => navigate("/listaProductos")}>
                         Productos
                     </Button>
-                    <Button color="info" className="m-2" onClick={() => navigate("/crearPropuesta")}>
+                    <Button color="info" className="m-2" onClick={() => navigate("/listaPropuestas")}>
                         Propuestas
                     </Button>
                 </Col>
