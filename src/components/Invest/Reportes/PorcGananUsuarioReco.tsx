@@ -12,6 +12,7 @@ interface IReportePorUsuario {
   inversionIndividual: number;
   ingresoPropuestaPorUsuario: number;
   porcentajeGananciaFinal: number;
+  mensajeResultado: string;
   rotacionDias: number | null;
   rentabilidadPorDia: number;
   analisisRentabilidad: string;
@@ -69,6 +70,7 @@ export function ReportePorUsuario() {
                 <th>Inversión Individual</th>
                 <th>Ingreso por Usuario</th>
                 <th>% Ganancia Final</th>
+                <th>Cumplimiento de Objetivo</th>
                 <th>Rotación (días)</th>
                 <th>Rentabilidad por Día</th>
                 <th>Análisis</th>
@@ -84,6 +86,7 @@ export function ReportePorUsuario() {
                   <td>${item.inversionIndividual.toFixed(2)}</td>
                   <td>${item.ingresoPropuestaPorUsuario.toFixed(2)}</td>
                   <td>{item.porcentajeGananciaFinal.toFixed(2)}%</td>
+                  <td>{item.mensajeResultado}</td>
                   <td>{item.rotacionDias !== null ? item.rotacionDias : "N/A"}</td>
                   <td>{item.rentabilidadPorDia.toFixed(2)}%</td>
                   <td>{item.analisisRentabilidad}</td>

@@ -19,6 +19,9 @@ export function HomeAdmin() {
                     <Button color="info" className="m-2" onClick={() => navigate("/listaPropuestas")}>
                         Propuestas
                     </Button>
+                    <Button color="success" className="m-2" onClick={() => navigate("/")}>
+                        Cerrar Sesión
+                    </Button>
                 </Col>
             </Row>
         </Container>

@@ -18,6 +18,10 @@ const initialUsuario = {
   cedulaUsuario: "",
   telefonoUsuario: "",
   correoUsuario: "",
+  generoUsuario:"",
+  fechaNacimientoUsuario:new Date().toISOString().split("T")[0], // Formato "YYYY-MM-DD"
+  objPorcPropUsuario: 0,
+  objGanMesUsuario: 0,
 };
 
 export function CrearUsuario() {
@@ -52,10 +56,15 @@ export function CrearUsuario() {
 
   const botonGuardar = async () => {
     try {
+      const UsuarioAEnviar = {
+        ...usuario,
+        fechaNacimientoUsuario: usuario.fechaNacimientoUsuario.replace(/-/g, ""), // Eliminar guiones
+      };
+  
       const response = await fetch(`${appsettings.apiUrl}Usuario/Crear`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(usuario),
+        body: JSON.stringify(UsuarioAEnviar),
       });
       const data = await response.json();
       if (data.codigo === 1) {
@@ -97,8 +106,25 @@ export function CrearUsuario() {
               <Input type="text" name="nombreUsuario" onChange={inputChangeValue} value={usuario.nombreUsuario} />
             </FormGroup>
             <FormGroup>
+              <Label>Fecha de Nacimiento</Label>
+              <Input
+                type="date"
+                name="fechaNacimientoUsuario"
+                onChange={inputChangeValue}
+                value={usuario.fechaNacimientoUsuario}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Género</Label>
+              <Input type="text" name="generoUsuario" onChange={inputChangeValue} value={usuario.generoUsuario} />
+            </FormGroup>
+            <FormGroup>
               <Label>Correo</Label>
               <Input type="text" name="correoUsuario" onChange={inputChangeValue} value={usuario.correoUsuario} />
+            </FormGroup>
+            <FormGroup>
+              <Label>Contraseña</Label>
+              <Input type="password" name="contraseniaUsuario" onChange={inputChangeValue} value={usuario.contraseniaUsuario} />
             </FormGroup>
             <FormGroup>
               <Label>Cédula</Label>
@@ -109,9 +135,14 @@ export function CrearUsuario() {
               <Input type="text" name="telefonoUsuario" onChange={inputChangeValue} value={usuario.telefonoUsuario} />
             </FormGroup>
             <FormGroup>
-              <Label>Contraseña</Label>
-              <Input type="password" name="contraseniaUsuario" onChange={inputChangeValue} value={usuario.contraseniaUsuario} />
+              <Label>Objetivo de Porcentaje de Ganancia</Label>
+              <Input type="number" name="objPorcPropUsuario" onChange={inputChangeValue} value={usuario.objPorcPropUsuario} />
             </FormGroup>
+            <FormGroup>
+              <Label>Objetivo de Ganancia al mes</Label>
+              <Input type="number" name="objGanMesUsuario" onChange={inputChangeValue} value={usuario.objGanMesUsuario} />
+            </FormGroup>
+            
             <Button color="primary" className="me-4" onClick={botonGuardar}>
               Guardar
             </Button>

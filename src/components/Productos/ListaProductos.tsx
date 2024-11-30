@@ -94,7 +94,7 @@ export function ListaProductos() {
               ))}
             </tbody>
           </Table>
-          <Button color="secondary" onClick={() => navigate("/paginaPrincipal")} className="mt-3">
+          <Button color="secondary" onClick={() => navigate("/HomeAdmin")} className="mt-3">
             Volver
           </Button>
         </Col>

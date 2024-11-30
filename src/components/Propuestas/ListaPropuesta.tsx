@@ -77,6 +77,9 @@ export function ListaPropuestas() {
                 <th>Precio</th>
                 <th>Presupuesto de Gasto</th>
                 <th>Número de Inversionistas</th>
+                <th>Valor Total</th>
+                <th>Precio de Venta</th>
+                <th>Ganancia Total</th>
                 <th>Estado de la Propuesta</th>
                 <th>Acciones</th>
               </tr>
@@ -88,6 +91,9 @@ export function ListaPropuestas() {
                   <td>${item.precioProducto.toFixed(2)}</td>
                   <td>${item.presupuestoGastoPropuesta.toFixed(2)}</td>
                   <td>{item.numInversionistasPropuesta}</td>
+                  <td>${item.valorTotalPropuesta.toFixed(2)}</td>
+                  <td>${item.precioVentaPropuesta.toFixed(2)}</td>
+                  <td>${item.gananciaPropuesta.toFixed(2)}</td>
                   <td>{item.estadoPropuesta}</td>
                   <td>
                     <Link to={`/detallePropuesta/${item.idPropuesta}`} className="btn btn-info me-2">Detalles</Link>
@@ -98,7 +104,7 @@ export function ListaPropuestas() {
               ))}
             </tbody>
           </Table>
-          <Button color="secondary" onClick={() => navigate("/paginaPrincipal")} className="mt-3">
+          <Button color="secondary" onClick={() => navigate("/HomeAdmin")} className="mt-3">
             Volver
           </Button>
         </Col>

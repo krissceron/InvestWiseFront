@@ -5,4 +5,7 @@ export interface IListaPropuesta {
     estadoPropuesta: string;
     numInversionistasPropuesta: number;
     presupuestoGastoPropuesta: number;
+    valorTotalPropuesta: number;
+    precioVentaPropuesta: number;
+    gananciaPropuesta: number;
   }

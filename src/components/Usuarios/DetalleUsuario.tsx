@@ -43,6 +43,9 @@ export function DetalleUsuario() {
           <p><strong>Cédula:</strong> {usuario.cedulaUsuario}</p>
           <p><strong>Teléfono:</strong> {usuario.telefonoUsuario}</p>
           <p><strong>Correo:</strong> {usuario.correoUsuario}</p>
+          <p><strong>Género:</strong> {usuario.generoUsuario}</p>
+          <p><strong>Objetivo Porcentaje de Ganancia:</strong> {usuario.objPorcPropUsuario}</p>
+          <p><strong>Objetivo Ganancia Mensual:</strong> {usuario.objGanMesUsuario}</p>
           <Button color="secondary" onClick={() => navigate(-1)} className="mt-3">
             Volver
           </Button>

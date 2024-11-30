@@ -18,6 +18,7 @@ import { InvDetallePropuesta } from "./components/Invest/InvDetallePropuesta"
 import { InvListaPropuestas } from "./components/Invest/InvListaPropuestas"
 import { InvReportes } from "./components/Invest/InvReportes"
 import { ReportePorUsuario } from "./components/Invest/Reportes/PorcGananUsuarioReco"
+import { EditarPropuesta } from "./components/Propuestas/EditarPropuesta"
 
 function App() {
 
@@ -41,6 +42,8 @@ function App() {
 
       <Route path="/editarUsuario/:id" element={<EditarUsuario/>} />
       <Route path="/editarProducto/:id" element={<EditarProducto />} />
+      <Route path="/editarPropuesta/:id" element={<EditarPropuesta />} />
+      
       
       <Route path="/detalleUsuario/:id" element={<DetalleUsuario />} />
       <Route path="/detalleProducto/:id" element={<DetalleProducto />} />

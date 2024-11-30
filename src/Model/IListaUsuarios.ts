@@ -8,5 +8,9 @@ export interface IListaUsuarios{
     cedulaUsuario:string,
     telefonoUsuario:string,
     correoUsuario:string,
+    generoUsuario:string,
+    fechaNacimientoUsuario:string
+    objPorcPropUsuario: number
+    objGanMesUsuario: number
 
 }

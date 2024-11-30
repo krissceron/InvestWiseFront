@@ -16,6 +16,9 @@ export function HomeInvest() {
                     <Button color="success" className="m-2" onClick={() => navigate("/invReportes")}>
                         Reportes
                     </Button>
+                    <Button color="success" className="m-2" onClick={() => navigate("/")}>
+                        Cerrar Sesión
+                    </Button>
                 </Col>
             </Row>
         </Container>

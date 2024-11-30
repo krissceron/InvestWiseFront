@@ -13,6 +13,9 @@ export function InvReportes() {
                        <Button color="info" className="m-2" onClick={() => navigate("/porcGananUsuReco")}>
                         Mis Ganancias y Recomendaciones
                     </Button>
+                    <Button color="success" className="m-2" onClick={() => navigate("/HomeInvest")}>
+                        Volver
+                    </Button>
                     
                 </Col>
             </Row>

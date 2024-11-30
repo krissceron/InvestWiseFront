@@ -16,6 +16,7 @@ const initialPropuesta = {
   idProducto: 0,
   numInversionistasPropuesta: 0,
   presupuestoGastoPropuesta: 0,
+  precioVentaPropuesta:0,
   fechaInicioPropuesta: new Date().toISOString().split("T")[0], // Formato "YYYY-MM-DD"
 };
 
@@ -116,6 +117,16 @@ export function CrearPropuesta() {
                 name="presupuestoGastoPropuesta"
                 onChange={inputChangeValue}
                 value={propuesta.presupuestoGastoPropuesta}
+                step="0.01" // Permitir incremento de dos decimales
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Valor de Venta</Label>
+              <Input
+                type="number"
+                name="precioVentaPropuesta"
+                onChange={inputChangeValue}
+                value={propuesta.precioVentaPropuesta}
                 step="0.01" // Permitir incremento de dos decimales
               />
             </FormGroup>
