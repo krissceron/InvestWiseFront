@@ -19,6 +19,7 @@ import { InvListaPropuestas } from "./components/Invest/InvListaPropuestas"
 import { InvReportes } from "./components/Invest/InvReportes"
 import { ReportePorUsuario } from "./components/Invest/Reportes/PorcGananUsuarioReco"
 import { EditarPropuesta } from "./components/Propuestas/EditarPropuesta"
+import { ReporteProductoRentablePorUsuario } from "./components/Invest/Reportes/ProductoMasRentable"
 
 function App() {
 
@@ -52,6 +53,8 @@ function App() {
 
       <Route path="/invReportes" element={<InvReportes/>} />
       <Route path="/porcGananUsuReco" element={<ReportePorUsuario/>} />
+      <Route path="/productosRentables" element={<ReporteProductoRentablePorUsuario/>} />
+      
       
     </Routes>
     </BrowserRouter>

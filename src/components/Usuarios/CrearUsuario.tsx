@@ -70,6 +70,8 @@ export function CrearUsuario() {
       if (data.codigo === 1) {
         Swal.fire("Éxito", "Usuario creado exitosamente", "success");
         navigate("/listaUsuarios");
+      } else if (data.codigo === -1) {
+        Swal.fire("Error", data.mensaje, "error");
       } else {
         Swal.fire("Error", "No se pudo crear el usuario", "error");
       }

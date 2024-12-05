@@ -131,7 +131,7 @@ export function CrearPropuesta() {
               />
             </FormGroup>
             <FormGroup>
-              <Label>Fecha de Inicio de la Propuesta</Label>
+              <Label>Fecha Campra Propuesta</Label>
               <Input
                 type="date"
                 name="fechaInicioPropuesta"
