@@ -18,6 +18,10 @@ const initialUsuario = {
   cedulaUsuario: "",
   telefonoUsuario: "",
   correoUsuario: "",
+  generoUsuario: "",
+  fechaNacimientoUsuario: "",
+  objPorcPropUsuario:  0,
+  objGanMesUsuario:  0,
 };
 
 export function RegistroUsuario() {
